@@ -5,6 +5,7 @@
 #include <iterator>
 #include <limits>
 #include "Quicksort.h"
+#include "PartitionStrategy.h"
 using namespace std;
 
 using Data = vector<int>;
@@ -17,7 +18,8 @@ Words splitWords(const string &str);
 int main() 
 {  
   Data data = getInputData("Enter numbers: ");
-  Quicksort quicksort{};
+  PartitionStrategy partition{};
+  Quicksort quicksort{ partition };
   quicksort.sort(data, 0, data.size()-1);
   printVector(data);
 }

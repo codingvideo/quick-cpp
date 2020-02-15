@@ -2,16 +2,18 @@
 #define Quicksort_h
 
 #include <vector>
+#include "PartitionStrategy.h"
 using namespace std;
 
 using Data = vector<int>;
 
 class Quicksort {
   public:
+    Quicksort(PartitionStrategy partitionStrategy);
     void sort(Data &data, int begin, int end);
+
   private:
-    int partition(Data &data, int begin, int end);
-    void swapItems(Data &data, int a, int b);
+    PartitionStrategy strategy;
 };
 
 #endif
