@@ -1,10 +1,14 @@
 #include "PartitionStrategy.h"
 
+    PartitionStrategy::PartitionStrategy(){}
+    PartitionStrategy::PartitionStrategy(function<Compare> compare){
+      _compare = compare;
+    }
 int PartitionStrategy::partition(Data &data, int begin, int end){
   int pivot = data[begin];
   int rightBegin = begin+1;
   for(int i=rightBegin; i<=end; i++){
-    if(data[i] < pivot){
+    if(_compare(data[i], pivot)){
       swapItems(data, i, rightBegin);
       rightBegin++;
     }

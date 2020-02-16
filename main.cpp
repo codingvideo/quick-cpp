@@ -18,7 +18,8 @@ Words splitWords(const string &str);
 int main() 
 {  
   Data data = getInputData("Enter numbers: ");
-  PartitionStrategy partition{};
+  auto compare = [](int item, int pivot){ return item < pivot; };
+  PartitionStrategy partition{ compare };
   Quicksort quicksort{ partition };
   quicksort.sort(data, 0, data.size()-1);
   printVector(data);
